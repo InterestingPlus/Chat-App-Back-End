@@ -5,8 +5,6 @@ const userRoutes = require("./routes/userRoutes");
 const messagesRoute = require("./routes/messagesRoute");
 const socket = require("socket.io");
 
-const hostname = "0.0.0.0";
-
 const app = express();
 require("dotenv").config();
 
@@ -29,8 +27,8 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello World</h1>");
 });
 
-const server = app.listen(process.env.PORT, hostname, () => {
-  console.log(`✅Server Started on https://localhost:${process.env.PORT}`);
+const server = app.listen(process.env.PORT, () => {
+  console.log(`✅Server Started on ${process.env.PORT}`);
 });
 
 const io = socket(server, {
